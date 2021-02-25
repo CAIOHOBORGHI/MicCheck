@@ -3,16 +3,20 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MicCheck.Data.Entities
 {
-    public class FanBandRelathionship
+    public class FanBandRelationship
     {
 
         [Key]
-        public Guid Id { get; set; }
+        public Guid FanBandRelationshipId { get; set; }
 
         [Required]
+        public string BandId { get; set; }
+
         public Band Band { get; set; }
 
         [Required]
+        public string FanId { get; set; }
+
         public Fan Fan { get; set; }
 
         [Required]

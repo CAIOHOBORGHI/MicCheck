@@ -8,15 +8,20 @@ namespace MicCheck.Data.Entities
     {
         public ReactionType()
         {
+            ReelsReactions = new HashSet<ReelReaction>();
+            PostsReactions = new HashSet<PostReaction>();
         }
 
         [Key]
-        public int Id { get; set; }
+        public int ReactionTypeId { get; set; }
 
         [Required]
         public string EmojiCode { get; set; }
 
         [Required]
         public string Type { get; set; }
+
+        public virtual ICollection<ReelReaction> ReelsReactions { get; set; }
+        public virtual ICollection<PostReaction> PostsReactions { get; set; }
     }
 }

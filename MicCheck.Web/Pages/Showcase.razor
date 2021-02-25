@@ -1,0 +1,12 @@
+﻿@page "/showcase"
+@attribute [Authorize]
+
+<AuthorizeView>
+    <Authorized>
+        <h1>You should only see this if you're authorized</h1>
+    </Authorized>
+    <NotAuthorized>
+        Sorry, you can't see this!
+    </NotAuthorized>
+
+</AuthorizeView>

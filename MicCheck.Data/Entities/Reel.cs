@@ -12,18 +12,20 @@ namespace MicCheck.Data.Entities
         }
 
         [Key]
-        public Guid Id { get; set; }
+        public Guid ReelId { get; set; }
 
         [Required]
+        public string BandId { get; set; }
+        public Band Band { get; set; }
+
+        [Required]
+        public string FanId { get; set; }
         public Fan Fan { get; set; }
 
-        [Required]
-        public Band Band { get; set; }
 
         [Required]
         public string VideoPath { get; set; }
 
         public virtual ICollection<ReelReaction> Reactions { get; private set; }
-
     }
 }

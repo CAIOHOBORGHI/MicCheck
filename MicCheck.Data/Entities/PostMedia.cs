@@ -11,12 +11,14 @@ namespace MicCheck.Data.Entities
         }
 
         [Key]
-        public Guid Id { get; set; }
+        public Guid PostMediaId { get; set; }
 
         [Required]
+        public Guid PostId { get; set; }
         public Post Post { get; set; }
 
         [Required]
+        public int MediaTypeId { get; set; }
         public MediaType MediaType { get; set; }
 
         [Required]

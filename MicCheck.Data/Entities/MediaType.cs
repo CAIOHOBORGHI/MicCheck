@@ -8,12 +8,15 @@ namespace MicCheck.Data.Entities
     {
         public MediaType()
         {
+            PostMedias = new HashSet<PostMedia>();
         }
 
         [Key]
-        public int Id { get; set; }
+        public int MediaTypeId { get; set; }
 
         [Required]
         public string Type { get; set; }
+
+        public virtual ICollection<PostMedia> PostMedias { get; private set; }
     }
 }

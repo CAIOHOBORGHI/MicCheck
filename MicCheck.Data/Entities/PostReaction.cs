@@ -11,12 +11,19 @@ namespace MicCheck.Data.Entities
         }
 
         [Key]
-        public Guid Id { get; set; }
+        public Guid PostReactionId { get; set; }
 
         [Required]
+        public Guid PostId { get; set; }
         public Post Post { get; set; }
 
         [Required]
+        public string FanId { get; set; }
+        public Fan Fan { get; set; }
+
+
+        [Required]
+        public int ReactionTypeId { get; set; }
         public ReactionType ReactionType { get; set; }
     }
 }

@@ -7,15 +7,17 @@ namespace MicCheck.Data.Entities
     {
         public Genre()
         {
-            Bands = new HashSet<Band>();
+            BandGenres = new HashSet<BandGenre>();
+            FanFavoriteGenres = new HashSet<FanFavoriteGenre>();
         }
 
         [Key]
-        public int Id { get; set; }
+        public int GenreId { get; set; }
 
         [Required]
         public string Name { get; set; }
 
-        public virtual ICollection<Band> Bands { get; set; }
+        public virtual ICollection<BandGenre> BandGenres { get; set; }
+        public virtual ICollection<FanFavoriteGenre> FanFavoriteGenres { get; set; }
     }
 }

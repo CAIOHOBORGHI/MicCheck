@@ -13,70 +13,70 @@ namespace MicCheck.Web.Shared
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "/Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck/MicCheck.Web/_Imports.razor"
+#line 1 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "/Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck/MicCheck.Web/_Imports.razor"
+#line 2 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "/Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck/MicCheck.Web/_Imports.razor"
+#line 3 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "/Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck/MicCheck.Web/_Imports.razor"
+#line 4 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "/Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck/MicCheck.Web/_Imports.razor"
+#line 5 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "/Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck/MicCheck.Web/_Imports.razor"
+#line 6 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "/Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck/MicCheck.Web/_Imports.razor"
+#line 7 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "/Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck/MicCheck.Web/_Imports.razor"
+#line 8 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "/Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck/MicCheck.Web/_Imports.razor"
+#line 9 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using MicCheck.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "/Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck/MicCheck.Web/_Imports.razor"
+#line 10 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using MicCheck.Web.Shared;
 
 #line default
@@ -90,7 +90,7 @@ using MicCheck.Web.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "/Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck/MicCheck.Web/Shared/NavMenu.razor"
+#line 33 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

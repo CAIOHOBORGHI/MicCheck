@@ -8,8 +8,13 @@ namespace MicCheck.Data.Entities
     // For demo purposes, I made this entity quite simple.
     public class Address
     {
+        public Address()
+        {
+            Venues = new HashSet<Venue>();
+        }
+
         [Key]
-        public Guid Id { get; set; }
+        public Guid AddressId { get; set; }
 
         [Required]
         public string City { get; set; }
@@ -31,6 +36,8 @@ namespace MicCheck.Data.Entities
         [Required]
         [StringLength(12)]
         public string ZIPCode { get; set; }
+
+        public virtual ICollection<Venue> Venues { get; private set; } 
 
     }
 }

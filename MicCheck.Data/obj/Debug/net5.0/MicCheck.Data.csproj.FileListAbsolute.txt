@@ -18,3 +18,18 @@
 /Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck/MicCheck.Data/obj/Debug/net5.0/ref/MicCheck.Data.dll
 /Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck/MicCheck.Data/obj/Debug/net5.0/MicCheck.Data.pdb
 /Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck/MicCheck.Data/obj/Debug/net5.0/MicCheck.Data.genruntimeconfig.cache
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\bin\Debug\net5.0\MicCheck.Data.deps.json
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\bin\Debug\net5.0\MicCheck.Data.runtimeconfig.json
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\bin\Debug\net5.0\MicCheck.Data.runtimeconfig.dev.json
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\bin\Debug\net5.0\MicCheck.Data.dll
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\bin\Debug\net5.0\ref\MicCheck.Data.dll
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\bin\Debug\net5.0\MicCheck.Data.pdb
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\obj\Debug\net5.0\MicCheck.Data.csprojAssemblyReference.cache
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\obj\Debug\net5.0\MicCheck.Data.GeneratedMSBuildEditorConfig.editorconfig
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\obj\Debug\net5.0\MicCheck.Data.AssemblyInfoInputs.cache
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\obj\Debug\net5.0\MicCheck.Data.AssemblyInfo.cs
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\obj\Debug\net5.0\MicCheck.Data.csproj.CoreCompileInputs.cache
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\obj\Debug\net5.0\MicCheck.Data.dll
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\obj\Debug\net5.0\ref\MicCheck.Data.dll
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\obj\Debug\net5.0\MicCheck.Data.pdb
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\obj\Debug\net5.0\MicCheck.Data.genruntimeconfig.cache

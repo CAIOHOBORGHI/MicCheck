@@ -7,8 +7,13 @@ namespace MicCheck.Data.Entities
 {
     public class Venue
     {
+        public Venue()
+        {
+            Shows = new HashSet<Show>();
+        }
+
         [Key]
-        public Guid Id { get; set; }
+        public Guid VenueId { get; set; }
 
         [Required]
         [StringLength(200)]
@@ -18,7 +23,10 @@ namespace MicCheck.Data.Entities
         public string Description { get; set; }
 
         [Required]
+        public Guid AddressId { get; set; }
         public Address Address { get; set; }
+
+        public virtual ICollection<Show> Shows { get; private set; }
 
     }
 }

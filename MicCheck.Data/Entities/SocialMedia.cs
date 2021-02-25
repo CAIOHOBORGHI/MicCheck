@@ -8,15 +8,18 @@ namespace MicCheck.Data.Entities
     {
         public SocialMedia()
         {
+            BandSocialMedias = new HashSet<BandSocialMedia>();
         }
 
         [Key]
-        public int Id { get; set; }
+        public int SocialMediaId { get; set; }
 
         [Required]
         public string Name { get; set; }
 
         [Required]
         public string Domain { get; set; }
+
+        public virtual ICollection<BandSocialMedia> BandSocialMedias { get; private set; }
     }
 }

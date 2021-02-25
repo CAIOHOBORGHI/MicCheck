@@ -1,0 +1,15 @@
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Core\bin\Debug\net5.0\MicCheck.Core.deps.json
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Core\bin\Debug\net5.0\MicCheck.Core.dll
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Core\bin\Debug\net5.0\ref\MicCheck.Core.dll
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Core\bin\Debug\net5.0\MicCheck.Core.pdb
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Core\bin\Debug\net5.0\MicCheck.Data.dll
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Core\bin\Debug\net5.0\MicCheck.Data.pdb
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Core\obj\Debug\net5.0\MicCheck.Core.csprojAssemblyReference.cache
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Core\obj\Debug\net5.0\MicCheck.Core.GeneratedMSBuildEditorConfig.editorconfig
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Core\obj\Debug\net5.0\MicCheck.Core.AssemblyInfoInputs.cache
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Core\obj\Debug\net5.0\MicCheck.Core.AssemblyInfo.cs
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Core\obj\Debug\net5.0\MicCheck.Core.csproj.CoreCompileInputs.cache
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Core\obj\Debug\net5.0\MicCheck.Core.csproj.CopyComplete
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Core\obj\Debug\net5.0\MicCheck.Core.dll
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Core\obj\Debug\net5.0\ref\MicCheck.Core.dll
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Core\obj\Debug\net5.0\MicCheck.Core.pdb

@@ -1,28 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck.Web/MicCheck.Web.csproj": {}
+    "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Web\\MicCheck.Web.csproj": {}
   },
   "projects": {
-    "/Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck.Web/MicCheck.Web.csproj": {
+    "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Data\\MicCheck.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck.Web/MicCheck.Web.csproj",
-        "projectName": "MicCheck.Web",
-        "projectPath": "/Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck.Web/MicCheck.Web.csproj",
-        "packagesPath": "/Users/caioborghi/.nuget/packages/",
-        "outputPath": "/Volumes/SSD 1TB/projetoscaio/jobsity/bluprints/MicCheck.Web/obj/",
+        "projectUniqueName": "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Data\\MicCheck.Data.csproj",
+        "projectName": "MicCheck.Data",
+        "projectPath": "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Data\\MicCheck.Data.csproj",
+        "packagesPath": "C:\\Users\\Caio Borghi\\.nuget\\packages\\",
+        "outputPath": "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "/Users/caioborghi/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Caio Borghi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,6 +43,110 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.DataProtection.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Web\\MicCheck.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Web\\MicCheck.Web.csproj",
+        "projectName": "MicCheck.Web",
+        "projectPath": "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Web\\MicCheck.Web.csproj",
+        "packagesPath": "C:\\Users\\Caio Borghi\\.nuget\\packages\\",
+        "outputPath": "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Caio Borghi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Data\\MicCheck.Data.csproj": {
+                "projectPath": "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Data\\MicCheck.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -58,7 +165,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

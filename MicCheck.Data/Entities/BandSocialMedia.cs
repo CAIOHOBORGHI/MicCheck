@@ -10,14 +10,17 @@ namespace MicCheck.Data.Entities
         {
         }
 
-        [Key]
-        public int Id { get; set; }
-
         [Required]
+        public string BandId { get; set; }
+
         public Band Band { get; set; }
 
+
         [Required]
+        public int SocialMediaId { get; set; }
+
         public SocialMedia SocialMedia { get; set; }
+
 
         [Required]
         public string Url { get; set; }
