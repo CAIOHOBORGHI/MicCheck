@@ -23,13 +23,9 @@ namespace MicCheck.Data.Entities
         public string Name { get; set; }
 
         [Required]
-        public string HomeTown { get; set; }
+        public string Hometown { get; set; }
 
         [Required]
         public string HashedPassword { get; set; }
-
-        //Using role as a string for demo purposes
-        [Required]
-        public string Role { get; set; }
     }
 }

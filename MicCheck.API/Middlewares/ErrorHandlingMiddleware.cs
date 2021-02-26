@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,12 +29,13 @@ namespace MicCheck.API.Middlewares
                     if (contextFeature != null)
                     {
                         BaseResponse response = new BaseResponse();
+                        response.Success = false;
                         logger.LogError($"Something went wrong: {contextFeature.Error}");
                         switch (context.Response.StatusCode)
                         {
                             // Here we can customize a message foreach status code errors
                             case 500:
-                                response.Message = "Internal server error!";
+                                response.Message = $"Internal server error!";
                                 break;
 
                             case 403:
@@ -45,7 +47,7 @@ namespace MicCheck.API.Middlewares
                                 break;
                         }
 
-                        await context.Response.WriteAsync(response.ToString());
+                        await context.Response.WriteAsync(JsonConvert.SerializeObject(response));
                     }
                 });
             });

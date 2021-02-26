@@ -35,11 +35,10 @@ namespace MicCheck.Data.Migrations
                     PicturePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PresentationAudioPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     VideoClipPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HomeTown = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HashedPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Hometown = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HashedPassword = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -69,11 +68,10 @@ namespace MicCheck.Data.Migrations
                     BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PicturePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ProfileDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HomeTown = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HashedPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Hometown = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HashedPassword = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -434,6 +432,12 @@ namespace MicCheck.Data.Migrations
                 column: "GenreId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Bands_Email",
+                table: "Bands",
+                column: "Email",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_BandSocialMedias_SocialMediaId",
                 table: "BandSocialMedias",
                 column: "SocialMediaId");
@@ -453,6 +457,12 @@ namespace MicCheck.Data.Migrations
                 name: "IX_FanFavoriteGenre_GenreId",
                 table: "FanFavoriteGenre",
                 column: "GenreId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Fans_Email",
+                table: "Fans",
+                column: "Email",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_PostMedias_MediaTypeId",

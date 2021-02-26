@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MicCheck.Core.Repositories.Interfaces
+namespace MicCheck.Data.Repositories.Interfaces
 {
     public interface IBandRepository : IRepository<Band> { }
 }

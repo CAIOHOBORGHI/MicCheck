@@ -8,7 +8,5 @@ using System.Threading.Tasks;
 
 namespace MicCheck.Data.Repositories.Interfaces
 {
-    public interface IFanBandRepository : IRepository<FanBandRelationship>
-    {
-    }
+    public interface IFanBandRepository : IRepository<FanBandRelationship> { }
 }

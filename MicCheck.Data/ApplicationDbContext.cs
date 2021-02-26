@@ -5,13 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MicCheck.Data
 {
-    public class ApplicationDbContext : DbContext    {
-
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        {
-            //Creates initial tables in database
-            //Database.Migrate();
-        }
+    public class ApplicationDbContext : DbContext 
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         public DbSet<DataProtectionKey> DataProtectionKeys { get; set; }
 
@@ -47,16 +43,15 @@ namespace MicCheck.Data
         {
 
             #region Relationships
-            // User
-            //builder.Entity<User>()
-            //    .HasMany<Band>(u => u.Bands)
-            //    .WithOne(b => b.User)
-            //    .HasForeignKey(b => b.UserId);
+            // Band
+            builder.Entity<Band>()
+                .HasIndex(b => b.Email)
+                .IsUnique();
 
-            //builder.Entity<User>()
-            //    .HasMany<Fan>(u => u.Fans)
-            //    .WithOne(f => f.User)
-            //    .HasForeignKey(f => f.UserId);
+            // Fas
+            builder.Entity<Fan>()
+                .HasIndex(f => f.Email)
+                .IsUnique();
 
             // Band Social Medias
             builder.Entity<BandSocialMedia>()

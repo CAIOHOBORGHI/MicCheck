@@ -8,17 +8,24 @@ namespace MicCheck.API.Models
 {
     public class UserModel
     {
-        [Required(ErrorMessage = "User name can't be empty!")]
+        public int Id { get; set; }
+
+        [Required(ErrorMessage = "Name can't be empty!")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "User email can't be empty!")]
-        [EmailAddress(ErrorMessage = "User email is invalid!")]
+        [Required(ErrorMessage = "Email can't be empty!")]
+        [EmailAddress(ErrorMessage = "Email is invalid!")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "User password can't be empty!")]
+        [Required(ErrorMessage = "Hometown can't be empty!")]
+        public string Hometown { get; set; }
+
+        [Required(ErrorMessage = "Password can't be empty!")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "User role is required!")]
-        public string Role { get; set; }
+        [Required(ErrorMessage = "Role is required!")]
+        public virtual string Role { get; set; }
     }
 }

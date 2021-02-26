@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MicCheck.API.Requests
 {
-    public class AddFanRequest
+    public class AddFanToBandRequest
     {
         [JsonRequired]
         public int FanId { get; set; }

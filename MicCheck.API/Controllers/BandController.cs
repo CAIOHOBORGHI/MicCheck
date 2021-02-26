@@ -13,7 +13,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace MicCheck.API.Controllers
 {
-    [Route("api/{controller}/{action}")]
     public class BandController : Controller
     {
         private IBandService _bandService;
@@ -27,7 +26,7 @@ namespace MicCheck.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddFan([FromBody]AddFanRequest request)
+        public IActionResult AddFan([FromBody]AddFanToBandRequest request)
         {
             if (!ModelState.IsValid)
             {

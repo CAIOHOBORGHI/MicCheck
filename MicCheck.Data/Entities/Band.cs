@@ -19,7 +19,7 @@ namespace MicCheck.Data.Entities
         [Required]
         [StringLength(120)]
         public string Description { get; set; }
-
+        
         public string PicturePath { get; set; }
         public string PresentationAudioPath { get; set; }
         public string VideoClipPath { get; set; }

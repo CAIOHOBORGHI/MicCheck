@@ -23,5 +23,12 @@ namespace MicCheck.API.Responses
             this.Success = false;
             return this;
         }
+
+        public BaseResponse Ok(string message)
+        {
+            this.Message = message;
+            this.Success = true;
+            return this;
+        }
     }
 }

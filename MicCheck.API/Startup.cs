@@ -14,6 +14,11 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using MicCheck.API.Services.Interfaces;
+using MicCheck.API.Services;
+using MicCheck.Core.Repositories.Interfaces;
+using MicCheck.Data.Repositories;
+using MicCheck.Data.Repositories.Interfaces;
 
 namespace MicCheck.API
 {
@@ -30,15 +35,15 @@ namespace MicCheck.API
         public void ConfigureServices(IServiceCollection services)
         {
             string connectionString = Configuration.GetConnectionString("DatabaseConnection");
-            string jwtKey = "";
-            Configuration.GetSection("JWTSecret").Bind(jwtKey);
+            string jwtKey = Configuration.GetValue<string>("JWTSecret");
 
             services.AddControllers();
 
             // Injects DbContext
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
-            var key = Encoding.ASCII.GetBytes(jwtKey);
+            // Implementing JWT authentication 
+            byte[] key = Encoding.ASCII.GetBytes(jwtKey);
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -56,14 +61,32 @@ namespace MicCheck.API
                     ValidateAudience = false
                 };
             });
-
-            // Implementing JWT authentication 
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             });
+
+            // Add cors
+            services.AddCors(o => o.AddPolicy("Policy", builder =>
+            {
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            }));
+
+            // Services declarations
+            services.AddScoped<IBandService, BandService>();
+            services.AddScoped<IFanService, FanService>();
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddSingleton<ISecurityService, SecurityService>();
+
+            // Repositories
+            services.AddScoped<IBandRepository, BandRepository>();
+            services.AddScoped<IFanBandRepository, FanBandRepository>();
+            services.AddScoped<IFanRepository, FanRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
@@ -73,7 +96,9 @@ namespace MicCheck.API
                 app.UseDeveloperExceptionPage();
             }
 
-            // With this line we configure the Exception handler
+            app.UseCors("Policy");
+
+            // With this line we configure the Exception Middleware
             app.ConfigureExceptionHandler(logger);
 
             app.UseHttpsRedirection();
@@ -86,6 +111,10 @@ namespace MicCheck.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "api/{controller=Home}/{action=Index}/{id?}"
+                );
             });
         }
     }
