@@ -1,0 +1,79 @@
+﻿@page "/register/fan"
+
+@inject MicCheck.Web.Services.Interfaces.IAuthenticationService AuthenticationService
+@inject HttpClient httpClient
+@inject NavigationManager NavigationManager 
+
+@using MicCheck.Shared.Models
+
+<div class="container">
+    <h3 class="text-center p-2"> Register your band </h3>
+    <EditForm Model="@Band">
+        <ValidationSummary />
+        <DataAnnotationsValidator />
+        <div class="form-group">
+            <label for="bandName" class="col-form-label">Name</label>
+            <InputText class="form-control" id="bandName" @bind-Value="Band.Name" />
+            <ValidationMessage For="@(() => Band.Name)" />
+        </div>
+
+        <div class="form-group">
+            <label for="bandEmail" class="col-form-label">Email</label>
+            <InputText type="email" placeholder="Enter email" class="form-control" id="bandEmail" @bind-Value="Band.Email" />
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <ValidationMessage For="@(() => Band.Email)" />
+        </div>
+
+        <div class="form-group">
+            <label for="bandHometown" class="col-form-label">Hometown</label>
+            <InputText type="text" placeholder="Tell us where the band started" class="form-control" id="bandHometown" @bind-Value="Band.Hometown" />
+            <ValidationMessage For="@(() => Band.Hometown)" />
+        </div>
+
+        <div class="form-group">
+            <label for="bandDescription" class="col-form-label">Profile Description</label>
+            <InputTextArea resize="false" class="form-control" id="bandDescription" @bind-Value="Band.Description" rows="2" />
+            <ValidationMessage For="@(() => Band.Description)" />
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="name" class="col-form-label">Password</label>
+                    <InputText autocomplete="off" type="password" class="form-control" id="bandPassword" @bind-Value="Band.Password" />
+                    <small id="passwordRequirements" class="form-text text-muted">Password requirements -> At least 1 ( Letter + Number + Special Character ) with 6 minimum characters</small>
+                    <ValidationMessage For="@(() => Band.Password)" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="name" class="col-form-label">Confirm password</label>
+                    <InputText autocomplete="off" type="password" class="form-control" id="bandConfirmPassword" @bind-Value="Band.ConfirmPassword" />
+                    <ValidationMessage For="@(() => Band.ConfirmPassword)" />
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-lg btn-primary float-right" @onclick="@(() => CreateBand())">
+            @if (loading)
+            {
+                <span class="spinner-border spinner-border-sm mr-1"></span>
+            }
+            Create!
+        </button>
+    </EditForm>
+</div>
+
+@code
+{
+    RegisterBandModel Band = new RegisterBandModel();
+    bool loading = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+    }
+
+    private void CreateBand()
+    {
+        Console.WriteLine("Clicked on create band man!");
+    }
+}

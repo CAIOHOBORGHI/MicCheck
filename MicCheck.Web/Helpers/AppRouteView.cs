@@ -21,10 +21,17 @@ namespace MicCheck.Web.Helpers
         protected override void Render(RenderTreeBuilder builder)
         {
             var authorize = Attribute.GetCustomAttribute(RouteData.PageType, typeof(AuthorizeAttribute)) != null;
+            //Here we sent unauthorized users back to login page
             if (authorize && AuthenticationService.Token == null)
             {
-                var returnUrl = WebUtility.UrlEncode(new Uri(NavigationManager.Uri).PathAndQuery);
-                NavigationManager.NavigateTo($"login?returnUrl={returnUrl}");
+                try
+                {
+                    NavigationManager.NavigateTo("/");
+                }
+                catch (Microsoft.AspNetCore.Components.NavigationException e)
+                {
+
+                }
             }
             else
             {

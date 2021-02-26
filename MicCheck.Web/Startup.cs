@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MicCheck.Web.Data;
 using System.Net.Http;
 using MicCheck.Web.Services.Interfaces;
 using MicCheck.Web.Services;
@@ -28,19 +27,15 @@ namespace MicCheck.Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            string apiUrl = Configuration.GetValue<string>("APIUrl");
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
 
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<IHttpService, HttpService>();
             services.AddScoped<ILocalStorageService, LocalStorageService>();
 
-            services.AddSingleton<HttpClient>();
-
-
-            //services.AddScoped(x => new HttpClient() { BaseAddress = new Uri(apiBaseUrl) });
-
+            services.AddSingleton(new HttpClient { BaseAddress = new Uri(apiUrl) });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

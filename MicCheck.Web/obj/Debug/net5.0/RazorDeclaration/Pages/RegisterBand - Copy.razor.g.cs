@@ -105,13 +105,6 @@ using MicCheck.Shared.Models;
 
     protected override async Task OnInitializedAsync()
     {
-        // Redirect to home if already logged in
-        if(AuthenticationService.User != null)
-        {
-            NavigationManager.NavigateTo("");
-        }
-
-        //forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
     }
 
     private void CreateBand()

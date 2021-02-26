@@ -14,6 +14,7 @@ namespace MicCheck.Web.Services
     {
 
         private const string AUTHENTICATE_ROUTE = "Account/Authenticate";
+        private const string REGISTER_BAND_ROUTE = "Account/RegisterBand";
 
         private IHttpService _httpService;
         private ILocalStorageService _localStorageService;
@@ -37,14 +38,22 @@ namespace MicCheck.Web.Services
             Token = await _localStorageService.GetItem<string>("token");
         }
 
+        public async Task<BaseResponse> RegisterBand(RegisterBandModel model)
+        {
+            TokenResponse response = await _httpService.Post<TokenResponse>(REGISTER_BAND_ROUTE, model);
+            if (response.Success)
+            {
+                await SaveToken(response.Token);
+            }
+            return response;
+        }
         public async Task<BaseResponse> Login(string email, string password, string role)
         {
             AuthenticationRequest authRequest = new AuthenticationRequest { Email = email, Password = password, Role = role };
-            TokenResponse response = await _httpService.Post<TokenResponse>("http://localhost:5120/api/" + AUTHENTICATE_ROUTE, authRequest);
+            TokenResponse response = await _httpService.Post<TokenResponse>(AUTHENTICATE_ROUTE, authRequest);
             if (response.Success)
             {
-                Token = response.Token;
-                await _localStorageService.SetItem("token", response.Token);
+                await SaveToken(response.Token);
             }
             return response;
         }
@@ -53,7 +62,13 @@ namespace MicCheck.Web.Services
         {
             Token = null;
             await _localStorageService.RemoveItem("token");
-            _navigationManager.NavigateTo("login");
+            _navigationManager.NavigateTo("/home");
+        }
+
+        private async Task SaveToken(string token)
+        {
+            Token = token;
+            await _localStorageService.SetItem("token", token);
         }
     }
 }

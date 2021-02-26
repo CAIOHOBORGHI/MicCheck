@@ -13,7 +13,7 @@
         {
             <div class="top-row px-4">
                 <a href="" Match="NavLinkMatch.All" class="nav-item nav-link">Home</a>
-                <a href="logout" class="nav-item nav-link"> Logout</a>
+                <a href="#" @onclick="() => AuthenticationService.Logout()" class="nav-item nav-link"> Logout</a>
             </div>
         }
 
@@ -22,3 +22,8 @@
         </div>
     </div>
 </div>
+
+@code
+{
+
+}

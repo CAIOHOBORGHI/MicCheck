@@ -13,6 +13,8 @@ namespace MicCheck.Web.Services.Interfaces
         
         Task Initialize();
 
+        Task<BaseResponse> RegisterBand(RegisterBandModel model);
+
         Task<BaseResponse> Login(string email, string password, string role);
 
         Task Logout();

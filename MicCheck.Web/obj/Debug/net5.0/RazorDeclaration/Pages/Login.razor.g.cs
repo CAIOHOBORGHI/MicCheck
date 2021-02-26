@@ -123,6 +123,13 @@ using Microsoft.AspNetCore.Components;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 9 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\Pages\Login.razor"
+using MicCheck.Shared.Requests;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/login/band")]
     [Microsoft.AspNetCore.Components.RouteAttribute("/login/fan")]
     public partial class Login : Microsoft.AspNetCore.Components.ComponentBase
@@ -133,18 +140,18 @@ using Microsoft.AspNetCore.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 44 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\Pages\Login.razor"
-       
-    private Model model = new Model();
+#line 54 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\Pages\Login.razor"
+ 
+    private AuthenticationRequest model = new AuthenticationRequest();
     private bool loading;
-    private string error;
-    private string roleLabel = "Band";
+    private string error, success;
 
     protected override void OnInitialized()
     {
+        model.Role = "Band";
         if (NavigationManager.Uri.Split('/')?.Last().ToUpper() == "FAN")
         {
-            roleLabel = "Fan";
+            model.Role = "Fan";
         }
 
         // redirect to home if already logged in
@@ -157,31 +164,34 @@ using Microsoft.AspNetCore.Components;
     private async void HandleValidSubmit()
     {
         loading = true;
+        StateHasChanged();
         try
         {
-            BaseResponse response = await authenticationService.Login(model.Username, model.Password, roleLabel);
+            BaseResponse response = await authenticationService.Login(model.Email, model.Password, model.Role);
+
             if (response.Success)
             {
-                //toastService.ShowSuccess(response.Message);
-                //await Task.Delay(5000);
+                success = response.Message;
+                StateHasChanged();
+                await Task.Delay(5000);
                 var returnUrl = NavigationManager.QueryString("returnUrl") ?? "/home";
                 NavigationManager.NavigateTo(returnUrl);
-
             }
             else
             {
-                //toastService.ShowError(response.Message);
+                error = response.Message;
+                StateHasChanged();
             }
 
         }
         catch (Exception ex)
         {
             error = ex.Message;
-            StateHasChanged();
         }
         finally
         {
             loading = false;
+            StateHasChanged();
         }
     }
 

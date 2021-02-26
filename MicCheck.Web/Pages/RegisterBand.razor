@@ -1,59 +1,67 @@
 ﻿@page "/register/band"
 
+@using MicCheck.Web.Services.Interfaces
+
+@using MicCheck.Shared.Responses;
 @inject MicCheck.Web.Services.Interfaces.IAuthenticationService AuthenticationService
 @inject HttpClient httpClient
-@inject NavigationManager NavigationManager 
+@inject NavigationManager NavigationManager
+@inject IAuthenticationService authenticationService
 
 @using MicCheck.Shared.Models
 
 <div class="container">
     <h3 class="text-center p-2"> Register your band </h3>
-    <EditForm Model="@Band">
+    @if (!string.IsNullOrEmpty(error))
+    {
+        <div class="alert alert-danger">@error</div>
+    }
+    <EditForm Model="@Model" OnValidSubmit="HandleValidSubmit">
         <ValidationSummary />
         <DataAnnotationsValidator />
         <div class="form-group">
             <label for="bandName" class="col-form-label">Name</label>
-            <InputText class="form-control" id="bandName" @bind-Value="Band.Name" />
-            <ValidationMessage For="@(() => Band.Name)" />
+            <InputText class="form-control" id="bandName" @bind-Value="Model.Name" />
+            <ValidationMessage For="@(() => Model.Name)" />
         </div>
 
         <div class="form-group">
             <label for="bandEmail" class="col-form-label">Email</label>
-            <InputText type="email" placeholder="Enter email" class="form-control" id="bandEmail" @bind-Value="Band.Email" />
+            <InputText type="email" placeholder="Enter email" class="form-control" id="bandEmail" @bind-Value="Model.Email" />
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            <ValidationMessage For="@(() => Band.Email)" />
+            <ValidationMessage For="@(() => Model.Email)" />
         </div>
 
         <div class="form-group">
             <label for="bandHometown" class="col-form-label">Hometown</label>
-            <InputText type="text" placeholder="Tell us where the band started" class="form-control" id="bandHometown" @bind-Value="Band.Hometown" />
-            <ValidationMessage For="@(() => Band.Hometown)" />
+            <InputText type="text" placeholder="Tell us where the band started" class="form-control" id="bandHometown" @bind-Value="Model.Hometown" />
+            <ValidationMessage For="@(() => Model.Hometown)" />
         </div>
 
         <div class="form-group">
             <label for="bandDescription" class="col-form-label">Profile Description</label>
-            <InputTextArea class="form-control" id="bandDescription" @bind-Value="Band.Description" rows="2" />
-            <ValidationMessage For="@(() => Band.Description)" />
+            <InputTextArea class="form-control" id="bandDescription" @bind-Value="Model.Description" rows="2" />
+            <ValidationMessage For="@(() => Model.Description)" />
         </div>
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
                     <label for="name" class="col-form-label">Password</label>
-                    <InputText autocomplete="off" type="password" class="form-control" id="bandPassword" @bind-Value="Band.Password" />
+                    <InputText autocomplete="off" type="password" class="form-control" id="bandPassword" @bind-Value="Model.Password" />
                     <small id="passwordRequirements" class="form-text text-muted">Password requirements -> At least 1 ( Letter + Number + Special Character ) with 6 minimum characters</small>
-                    <ValidationMessage For="@(() => Band.Password)" />
+                    <ValidationMessage For="@(() => Model.Password)" />
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label for="name" class="col-form-label">Confirm password</label>
-                    <InputText autocomplete="off" type="password" class="form-control" id="bandConfirmPassword" @bind-Value="Band.ConfirmPassword" />
-                    <ValidationMessage For="@(() => Band.ConfirmPassword)" />
+                    <InputText autocomplete="off" type="password" class="form-control" id="bandConfirmPassword" @bind-Value="Model.ConfirmPassword" />
+                    <ValidationMessage For="@(() => Model.ConfirmPassword)" />
                 </div>
             </div>
         </div>
 
-        <button type="button" class="btn btn-lg btn-primary float-right" @onclick="@(() => CreateBand())">
+        <button type="submit" class="btn btn-lg btn-primary float-right">
             @if (loading)
             {
                 <span class="spinner-border spinner-border-sm mr-1"></span>
@@ -65,15 +73,42 @@
 
 @code
 {
-    RegisterBandModel Band = new RegisterBandModel();
+    RegisterBandModel Model = new RegisterBandModel();
     bool loading = false;
+    string error;
 
-    protected override async Task OnInitializedAsync()
-    {
-    }
 
-    private void CreateBand()
+    protected override async Task OnInitializedAsync(){ }
+
+    private async void HandleValidSubmit()
     {
-        Console.WriteLine("Clicked on create band man!");
+        loading = true;
+        StateHasChanged();
+
+        try
+        {
+            BaseResponse response = await authenticationService.RegisterBand(Model);
+
+            if (response.Success)
+            {
+                StateHasChanged();
+                NavigationManager.NavigateTo("/home");
+            }
+            else
+            {
+                error = response.Message;
+                StateHasChanged();
+            }
+
+        }
+        catch (Exception ex)
+        {
+            error = ex.Message;
+        }
+        finally
+        {
+            loading = false;
+            StateHasChanged();
+        }
     }
 }

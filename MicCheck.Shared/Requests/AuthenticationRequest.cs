@@ -9,6 +9,8 @@ namespace MicCheck.Shared.Requests
     public class AuthenticationRequest
     {
         [Required]
+        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "Email is invalid!")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [Required]

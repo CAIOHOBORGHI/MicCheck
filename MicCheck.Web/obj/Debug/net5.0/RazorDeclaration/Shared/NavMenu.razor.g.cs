@@ -96,13 +96,6 @@ using MicCheck.Web.Services.Interfaces;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 2 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\Shared\NavMenu.razor"
-           [Authorize]
-
-#line default
-#line hidden
-#nullable disable
     public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -111,7 +104,7 @@ using MicCheck.Web.Services.Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 44 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\Shared\NavMenu.razor"
+#line 50 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

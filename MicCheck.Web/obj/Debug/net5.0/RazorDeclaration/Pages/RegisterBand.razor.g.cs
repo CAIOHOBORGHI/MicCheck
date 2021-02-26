@@ -83,7 +83,21 @@ using MicCheck.Web.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\Pages\RegisterBand.razor"
+#line 3 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\Pages\RegisterBand.razor"
+using MicCheck.Web.Services.Interfaces;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\Pages\RegisterBand.razor"
+using MicCheck.Shared.Responses;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 11 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\Pages\RegisterBand.razor"
 using MicCheck.Shared.Models;
 
 #line default
@@ -98,23 +112,51 @@ using MicCheck.Shared.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 67 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\Pages\RegisterBand.razor"
+#line 75 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\Pages\RegisterBand.razor"
  
-    RegisterBandModel Band = new RegisterBandModel();
+    RegisterBandModel Model = new RegisterBandModel();
     bool loading = false;
+    string error;
 
-    protected override async Task OnInitializedAsync()
-    {
-    }
 
-    private void CreateBand()
+    protected override async Task OnInitializedAsync(){ }
+
+    private async void HandleValidSubmit()
     {
-        Console.WriteLine("Clicked on create band man!");
+        loading = true;
+        StateHasChanged();
+
+        try
+        {
+            BaseResponse response = await authenticationService.RegisterBand(Model);
+
+            if (response.Success)
+            {
+                StateHasChanged();
+                NavigationManager.NavigateTo("/home");
+            }
+            else
+            {
+                error = response.Message;
+                StateHasChanged();
+            }
+
+        }
+        catch (Exception ex)
+        {
+            error = ex.Message;
+        }
+        finally
+        {
+            loading = false;
+            StateHasChanged();
+        }
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IAuthenticationService authenticationService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient httpClient { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private MicCheck.Web.Services.Interfaces.IAuthenticationService AuthenticationService { get; set; }
