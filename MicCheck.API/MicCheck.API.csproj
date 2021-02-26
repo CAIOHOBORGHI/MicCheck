@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MicCheck.Data\MicCheck.Data.csproj" />
+    <ProjectReference Include="..\MicCheck.Shared\MicCheck.Shared.csproj" />
   </ItemGroup>
 
 

@@ -1,5 +1,5 @@
-﻿using MicCheck.API.Responses;
-using MicCheck.API.Responses;
+﻿using MicCheck.Shared.Responses;
+using MicCheck.Shared.Responses;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
@@ -34,11 +34,11 @@ namespace MicCheck.API.Middlewares
                         switch (context.Response.StatusCode)
                         {
                             // Here we can customize a message foreach status code errors
-                            case 500:
+                            case (int)HttpStatusCode.InternalServerError:
                                 response.Message = $"Internal server error!";
                                 break;
 
-                            case 403:
+                            case (int)HttpStatusCode.Unauthorized:
                                 response.Message = "Sorry but you're not allowed to access this feature!";
                                 break;
 

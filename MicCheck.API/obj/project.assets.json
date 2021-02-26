@@ -1768,6 +1768,16 @@
         "runtime": {
           "bin/placeholder/MicCheck.Data.dll": {}
         }
+      },
+      "MicCheck.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/MicCheck.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MicCheck.Shared.dll": {}
+        }
       }
     }
   },
@@ -6269,12 +6279,18 @@
       "type": "project",
       "path": "../MicCheck.Data/MicCheck.Data.csproj",
       "msbuildProject": "../MicCheck.Data/MicCheck.Data.csproj"
+    },
+    "MicCheck.Shared/1.0.0": {
+      "type": "project",
+      "path": "../MicCheck.Shared/MicCheck.Shared.csproj",
+      "msbuildProject": "../MicCheck.Shared/MicCheck.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "BCrypt.Net-Next >= 4.0.2",
       "MicCheck.Data >= 1.0.0",
+      "MicCheck.Shared >= 1.0.0",
       "Microsoft.AspNetCore.Authentication >= 2.2.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.3",
       "Microsoft.EntityFrameworkCore >= 5.0.3",
@@ -6318,6 +6334,9 @@
           "projectReferences": {
             "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Data\\MicCheck.Data.csproj": {
               "projectPath": "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Data\\MicCheck.Data.csproj"
+            },
+            "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Shared\\MicCheck.Shared.csproj": {
+              "projectPath": "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Shared\\MicCheck.Shared.csproj"
             }
           }
         }

@@ -1,6 +1,6 @@
-﻿using MicCheck.API.Models;
+﻿using MicCheck.Shared.Models;
 using MicCheck.Core.Repositories.Interfaces;
-using MicCheck.API.Responses;
+using MicCheck.Shared.Responses;
 using MicCheck.API.Services.Interfaces;
 using MicCheck.Data.Entities;
 using System;
@@ -96,11 +96,12 @@ namespace MicCheck.API.Services
             return bandModels;
         }
 
-        public BaseDataResponse<BandModel> RegisterBand(RegisterBandRequest model)
+        public BaseDataResponse<BandModel> RegisterBand(RegisterBandModel model)
         {
             BaseDataResponse<BandModel> response = new BaseDataResponse<BandModel>();
 
-            // Pre-Insert validations
+            // Service layer validations 
+            #region Validations
             if (string.IsNullOrWhiteSpace(model.Name))
             {
                 response.Error("Band name can't be empty!");
@@ -112,7 +113,10 @@ namespace MicCheck.API.Services
                 response.Error("Password can't be empty!");
                 return response;
             }
+            #endregion
+
             string hashedPassword = _securityService.HashPassword(model.Password);
+
             Band entity = new Band { 
                 Name = model.Name, 
                 Email = model.Email, 
@@ -124,6 +128,7 @@ namespace MicCheck.API.Services
                 VideoClipPath = model.VideoClipPath 
             };
             _bandRepository.Insert(entity);
+
             BandModel bandModel = new BandModel { BandId = entity.Id, Name = entity.Name, Hometown = entity.Hometown };
             response.Ok("Band inserted successfully!");
             response.Data = bandModel;

@@ -13,71 +13,92 @@ namespace MicCheck.Web.Shared
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
+#line 1 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
+#line 2 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
+#line 3 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
+#line 4 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
+#line 5 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
+#line 6 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
+#line 7 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
+#line 8 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
+#line 9 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using MicCheck.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
+#line 10 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
 using MicCheck.Web.Shared;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 11 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
+using MicCheck.Shared.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 1 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\Shared\NavMenu.razor"
+using MicCheck.Web.Services.Interfaces;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\Shared\NavMenu.razor"
+           [Authorize]
 
 #line default
 #line hidden
@@ -90,7 +111,7 @@ using MicCheck.Web.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 33 "f:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\Shared\NavMenu.razor"
+#line 44 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 
@@ -104,6 +125,7 @@ using MicCheck.Web.Shared;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IAuthenticationService AuthenticationService { get; set; }
     }
 }
 #pragma warning restore 1591

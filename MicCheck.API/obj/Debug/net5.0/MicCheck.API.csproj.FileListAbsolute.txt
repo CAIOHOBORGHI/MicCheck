@@ -65,3 +65,5 @@ F:\projetoscaio\Bluprints\MicCheck\MicCheck.API\obj\Debug\net5.0\MicCheck.API.dl
 F:\projetoscaio\Bluprints\MicCheck\MicCheck.API\obj\Debug\net5.0\ref\MicCheck.API.dll
 F:\projetoscaio\Bluprints\MicCheck\MicCheck.API\obj\Debug\net5.0\MicCheck.API.pdb
 F:\projetoscaio\Bluprints\MicCheck\MicCheck.API\obj\Debug\net5.0\MicCheck.API.genruntimeconfig.cache
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.API\bin\Debug\net5.0\MicCheck.Shared.dll
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.API\bin\Debug\net5.0\MicCheck.Shared.pdb

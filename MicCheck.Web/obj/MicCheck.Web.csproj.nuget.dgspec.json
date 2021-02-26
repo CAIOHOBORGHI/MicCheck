@@ -4,14 +4,14 @@
     "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Web\\MicCheck.Web.csproj": {}
   },
   "projects": {
-    "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Data\\MicCheck.Data.csproj": {
+    "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Shared\\MicCheck.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Data\\MicCheck.Data.csproj",
-        "projectName": "MicCheck.Data",
-        "projectPath": "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Data\\MicCheck.Data.csproj",
+        "projectUniqueName": "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Shared\\MicCheck.Shared.csproj",
+        "projectName": "MicCheck.Shared",
+        "projectPath": "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Shared\\MicCheck.Shared.csproj",
         "packagesPath": "C:\\Users\\Caio Borghi\\.nuget\\packages\\",
-        "outputPath": "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Data\\obj\\",
+        "outputPath": "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -43,34 +43,6 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.DataProtection.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[5.0.3, )"
-            },
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[5.0.3, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[5.0.3, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[5.0.3, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[5.0.3, )"
-            },
-            "Microsoft.Extensions.Identity.Stores": {
-              "target": "Package",
-              "version": "[5.0.3, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -118,8 +90,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Data\\MicCheck.Data.csproj": {
-                "projectPath": "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Data\\MicCheck.Data.csproj"
+              "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Shared\\MicCheck.Shared.csproj": {
+                "projectPath": "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Shared\\MicCheck.Shared.csproj"
               }
             }
           }
@@ -134,17 +106,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[5.0.3, )"
-            },
-            "Microsoft.AspNetCore.Identity.UI": {
-              "target": "Package",
-              "version": "[5.0.3, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[5.0.3, )"
+              "version": "[5.0.2, )"
             }
           },
           "imports": [

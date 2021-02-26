@@ -1,6 +1,6 @@
-﻿using MicCheck.API.Models;
+﻿using MicCheck.Shared.Models;
 using MicCheck.API.Requests;
-using MicCheck.API.Responses;
+using MicCheck.Shared.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +17,6 @@ namespace MicCheck.API.Services.Interfaces
 
         List<BandModel> GetByGenre(string genres);
 
-        BaseDataResponse<BandModel> RegisterBand(RegisterBandRequest model);
+        BaseDataResponse<BandModel> RegisterBand(RegisterBandModel model);
     }
 }

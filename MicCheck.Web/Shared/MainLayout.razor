@@ -1,4 +1,7 @@
 @inherits LayoutComponentBase
+@using MicCheck.Web.Services.Interfaces
+@inject IAuthenticationService AuthenticationService
+@inject NavigationManager NavigationManager
 
 <div class="page">
     <div class="sidebar">
@@ -6,10 +9,13 @@
     </div>
 
     <div class="main">
-        <div class="top-row px-4">
-            <LoginDisplay />
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-        </div>
+        @if (AuthenticationService.Token != null)
+        {
+            <div class="top-row px-4">
+                <a href="" Match="NavLinkMatch.All" class="nav-item nav-link">Home</a>
+                <a href="logout" class="nav-item nav-link"> Logout</a>
+            </div>
+        }
 
         <div class="content px-4">
             @Body

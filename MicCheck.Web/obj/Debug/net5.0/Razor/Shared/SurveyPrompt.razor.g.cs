@@ -79,6 +79,13 @@ using MicCheck.Web.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "F:\projetoscaio\Bluprints\MicCheck\MicCheck.Web\_Imports.razor"
+using MicCheck.Shared.Models;
+
+#line default
+#line hidden
+#nullable disable
     public partial class SurveyPrompt : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998

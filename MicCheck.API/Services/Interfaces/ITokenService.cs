@@ -1,6 +1,6 @@
-﻿using MicCheck.API.Models;
+﻿using MicCheck.Shared.Models;
 using MicCheck.API.Requests;
-using MicCheck.API.Responses;
+using MicCheck.Shared.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,13 +17,13 @@ namespace MicCheck.API.Services.Interfaces
         /// <param name="name"></param>
         /// <param name="role"></param>
         /// <returns>JWT token</returns>
-        string GenerateToken(TokenModel model);
+        string GenerateToken(AuthenticationUserModel model);
 
         /// <summary>
         /// Validates user email, role and password
         /// </summary>
         /// <param name="user"></param>
         /// <returns>Returns base data response with tokenModel</returns>
-        BaseDataResponse<TokenModel> ValidateUser(AuthenticationRequest user);
+        BaseDataResponse<AuthenticationUserModel> ValidateUser(AuthenticationRequest user);
     }
 }

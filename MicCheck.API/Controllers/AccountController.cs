@@ -1,6 +1,6 @@
-﻿using MicCheck.API.Models;
+﻿using MicCheck.Shared.Models;
 using MicCheck.API.Requests;
-using MicCheck.API.Responses;
+using MicCheck.Shared.Responses;
 using MicCheck.API.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -22,15 +22,22 @@ namespace MicCheck.API.Controllers
             _tokenService = tokenService;
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Test()
+        {
+            return Ok("okay!");
+        }
+
         [HttpPost]
         [AllowAnonymous]
         public IActionResult Authenticate([FromBody] AuthenticationRequest user)
         {
             TokenResponse tokenResponse = new TokenResponse();
-            BaseDataResponse<TokenModel> serviceResponse = _tokenService.ValidateUser(user);
+            BaseDataResponse<AuthenticationUserModel> serviceResponse = _tokenService.ValidateUser(user);
             if (serviceResponse.Success)
             {
-                TokenModel model = serviceResponse.Data;
+                AuthenticationUserModel model = serviceResponse.Data;
                 tokenResponse.Message = "User is authenticated!";
                 tokenResponse.Token = _tokenService.GenerateToken(model);
                 return Ok(tokenResponse);
@@ -42,7 +49,7 @@ namespace MicCheck.API.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public IActionResult RegisterBand([FromBody] RegisterBandRequest request)
+        public IActionResult RegisterBand([FromBody]RegisterBandModel requestModel)
         {
             TokenResponse tokenResponse = new TokenResponse();
             if (!ModelState.IsValid)
@@ -50,11 +57,11 @@ namespace MicCheck.API.Controllers
                 return Ok(tokenResponse.Error("Inserted data is not valid!"));
             }
 
-            BaseDataResponse<BandModel> serviceResponse = _bandService.RegisterBand(request);
+            BaseDataResponse<BandModel> serviceResponse = _bandService.RegisterBand(requestModel);
             if (serviceResponse.Success)
             {
-                BandModel model = serviceResponse.Data;
-                TokenModel tokenModel = new TokenModel(model.BandId, model.Name, "Band");
+                BandModel dbModel = serviceResponse.Data;
+                AuthenticationUserModel tokenModel = new AuthenticationUserModel(dbModel.BandId, requestModel.Name, "Band");
                 tokenResponse.Token = _tokenService.GenerateToken(tokenModel);
             }
             return Ok(tokenResponse);

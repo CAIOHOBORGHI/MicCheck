@@ -1,4 +1,4 @@
-﻿using MicCheck.API.Models;
+﻿using MicCheck.Shared.Models;
 using MicCheck.API.Services.Interfaces;
 using System;
 using System.Collections.Generic;

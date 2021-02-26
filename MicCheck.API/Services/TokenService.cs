@@ -1,6 +1,6 @@
-﻿using MicCheck.API.Models;
+﻿using MicCheck.Shared.Models;
 using MicCheck.API.Requests;
-using MicCheck.API.Responses;
+using MicCheck.Shared.Responses;
 using MicCheck.API.Services.Interfaces;
 using MicCheck.Core.Repositories.Interfaces;
 using MicCheck.Data.Entities;
@@ -36,7 +36,7 @@ namespace MicCheck.API.Services
             _securityService = securityService;
         }
 
-        public string GenerateToken(TokenModel model)
+        public string GenerateToken(AuthenticationUserModel model)
         {
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
             string jwtSecret = _config.GetValue<string>("JWTSecret");
@@ -57,16 +57,16 @@ namespace MicCheck.API.Services
             return tokenHandler.WriteToken(token);
         }
 
-        public BaseDataResponse<TokenModel> ValidateUser(AuthenticationRequest user)
+        public BaseDataResponse<AuthenticationUserModel> ValidateUser(AuthenticationRequest user)
         {
-            BaseDataResponse<TokenModel> response = new BaseDataResponse<TokenModel>();
+            BaseDataResponse<AuthenticationUserModel> response = new BaseDataResponse<AuthenticationUserModel>();
             if (string.IsNullOrWhiteSpace(user.Email) || string.IsNullOrWhiteSpace(user.Password))
             {
                 response.Error("User email and password are required!");
                 return response;
             }
 
-            TokenModel tokenModel;
+            AuthenticationUserModel tokenModel;
 
             /* For demo simplicity I'm using role as a string to define if user is band or fan */
             switch (user.Role.ToUpper())
@@ -95,24 +95,24 @@ namespace MicCheck.API.Services
             return response;
         }
 
-        private TokenModel ValidateBand(string email, string password)
+        private AuthenticationUserModel ValidateBand(string email, string password)
         {
             Band entity = _bandRepository.Get(b => b.Email == email);
 
             // Validates password
-            if(_securityService.ComparePasswords(password, entity.HashedPassword))
-                return new TokenModel (entity.Id, entity.Name, "Band");
+            if(entity != null && _securityService.ComparePasswords(password, entity.HashedPassword))
+                return new AuthenticationUserModel (entity.Id, entity.Name, "Band");
 
             return null;
         }
 
-        private TokenModel ValidateFan(string email, string password)
+        private AuthenticationUserModel ValidateFan(string email, string password)
         {
             Fan entity = _fanRepository.Get(f => f.Email == email);
 
             // Here we compare the modelPassword with the hashedpassword
-            if (_securityService.ComparePasswords(password, entity.HashedPassword))
-                return new TokenModel (entity.Id, entity.Name, "Fan");
+            if (entity != null && _securityService.ComparePasswords(password, entity.HashedPassword))
+                return new AuthenticationUserModel (entity.Id, entity.Name, "Fan");
 
             return null;
         }

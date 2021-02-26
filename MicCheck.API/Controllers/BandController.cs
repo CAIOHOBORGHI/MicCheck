@@ -1,7 +1,7 @@
 ﻿using MicCheck.API.Requests;
-using MicCheck.API.Responses;
-using MicCheck.API.Models;
-using MicCheck.API.Responses;
+using MicCheck.Shared.Responses;
+using MicCheck.Shared.Models;
+using MicCheck.Shared.Responses;
 using MicCheck.API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

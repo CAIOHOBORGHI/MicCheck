@@ -27,6 +27,7 @@
         "dependencies": {
           "BCrypt.Net-Next": "4.0.2",
           "MicCheck.Data": "1.0.0",
+          "MicCheck.Shared": "1.0.0",
           "Microsoft.AspNetCore.Authentication": "2.2.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.3",
           "Microsoft.EntityFrameworkCore": "5.0.3",
@@ -1473,6 +1474,14 @@
         },
         "compile": {
           "MicCheck.Data.dll": {}
+        }
+      },
+      "MicCheck.Shared/1.0.0": {
+        "runtime": {
+          "MicCheck.Shared.dll": {}
+        },
+        "compile": {
+          "MicCheck.Shared.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -3974,6 +3983,11 @@
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
     "MicCheck.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MicCheck.Shared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

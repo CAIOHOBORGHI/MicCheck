@@ -5,16 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MicCheck.Web.Data;
-using MicCheck.Data;
-using Microsoft.EntityFrameworkCore;
-using MicCheck.Data.Entities;
-using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Components.Server;
+using System.Net.Http;
+using MicCheck.Web.Services.Interfaces;
+using MicCheck.Web.Services;
 
 namespace MicCheck.Web
 {
@@ -31,13 +28,19 @@ namespace MicCheck.Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
-            services.AddDefaultIdentity<Band>().AddEntityFrameworkStores<ApplicationDbContext>();
-
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddScoped<AuthenticationStateProvider, ServerAuthenticationStateProvider>();
             services.AddSingleton<WeatherForecastService>();
+
+            services.AddScoped<IAuthenticationService, AuthenticationService>();
+            services.AddScoped<IHttpService, HttpService>();
+            services.AddScoped<ILocalStorageService, LocalStorageService>();
+
+            services.AddSingleton<HttpClient>();
+
+
+            //services.AddScoped(x => new HttpClient() { BaseAddress = new Uri(apiBaseUrl) });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,21 +53,14 @@ namespace MicCheck.Web
             else
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
 
-            app.UseAuthentication();
-            app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
             });

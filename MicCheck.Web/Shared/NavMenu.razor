@@ -1,5 +1,9 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">MicCheck.Web</a>
+﻿@using MicCheck.Web.Services.Interfaces
+@attribute [Authorize]
+@inject IAuthenticationService AuthenticationService
+
+<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">MicCheck Platform</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -7,26 +11,33 @@
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="showcase">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Test authentication
-            </NavLink>
-        </li>
+        @if (AuthenticationService.Token != null)
+        {
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    <span class="oi oi-home" aria-hidden="true"></span> Home
+                </NavLink>
+            </li>
+        }
+        @if (AuthenticationService.Token == null)
+        {
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="register/band">
+                    <span class="oi oi-plus" aria-hidden="true"></span> Register a band
+                </NavLink>
+            </li>
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="login/band">
+                    <span class="oi oi-musical-note" aria-hidden="true"></span> Band Login
+                </NavLink>
+            </li>
+
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="login/fan">
+                    <span class="oi oi-person" aria-hidden="true"></span> Fan Login
+                </NavLink>
+            </li>
+        }
     </ul>
 </div>
 
