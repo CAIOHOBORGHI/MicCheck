@@ -16,7 +16,7 @@ namespace MicCheck.Data.Entities
         public Guid PostId { get; set; }
 
         [Required]
-        public string BandId { get; set; }
+        public int BandId { get; set; }
         public Band Band { get; set; }
 
         [Required]

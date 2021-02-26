@@ -10,7 +10,7 @@ namespace MicCheck.Data.Entities
     public class BandGenre
     {
         [Required]
-        public string BandId { get; set; }
+        public int BandId { get; set; }
         public Band Band { get; set; }
 
         [Required]

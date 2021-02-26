@@ -15,11 +15,11 @@ namespace MicCheck.Data.Entities
         public Guid ReelId { get; set; }
 
         [Required]
-        public string BandId { get; set; }
+        public int BandId { get; set; }
         public Band Band { get; set; }
 
         [Required]
-        public string FanId { get; set; }
+        public int FanId { get; set; }
         public Fan Fan { get; set; }
 
 

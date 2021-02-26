@@ -1,13 +1,11 @@
 ﻿using System;
 using MicCheck.Data.Entities;
 using Microsoft.AspNetCore.DataProtection.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace MicCheck.Data
 {
-    public class ApplicationDbContext : IdentityDbContext, IDataProtectionKeyContext
-    {
+    public class ApplicationDbContext : DbContext    {
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -49,6 +47,19 @@ namespace MicCheck.Data
         {
 
             #region Relationships
+            // User
+            builder.Entity<User>()
+                .HasMany<Band>(u => u.Bands)
+                .WithOne(b => b.User)
+                .HasForeignKey(b => b.UserId)
+                .IsRequired();
+
+            builder.Entity<User>()
+                .HasMany<Fan>(u => u.Fans)
+                .WithOne(f => f.User)
+                .HasForeignKey(f => f.UserId)
+                .IsRequired();
+
             // Band Social Medias
             builder.Entity<BandSocialMedia>()
                 .HasKey(bsm => new { bsm.BandId, bsm.SocialMediaId });

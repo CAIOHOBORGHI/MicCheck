@@ -9,7 +9,6 @@
       "MicCheck.Data/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.DataProtection.EntityFrameworkCore": "5.0.3",
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.3",
           "Microsoft.EntityFrameworkCore": "5.0.3",
           "Microsoft.EntityFrameworkCore.Design": "5.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.3",
@@ -79,18 +78,6 @@
         },
         "runtime": {
           "lib/netstandard2.1/Microsoft.AspNetCore.DataProtection.EntityFrameworkCore.dll": {
-            "assemblyVersion": "5.0.3.0",
-            "fileVersion": "5.0.321.7303"
-          }
-        }
-      },
-      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/5.0.3": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "5.0.3",
-          "Microsoft.Extensions.Identity.Stores": "5.0.3"
-        },
-        "runtime": {
-          "lib/net5.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
             "assemblyVersion": "5.0.3.0",
             "fileVersion": "5.0.321.7303"
           }
@@ -1269,13 +1256,6 @@
       "sha512": "sha512-T+Vf7t/ppMyG3ZGJA3b1UdEiEPpP8UXN27QizC/nQNyZqUQxlfc/ueDRoC4wSqZFM6EuWS0A9bivNRYf7001Dg==",
       "path": "microsoft.aspnetcore.dataprotection.entityframeworkcore/5.0.3",
       "hashPath": "microsoft.aspnetcore.dataprotection.entityframeworkcore.5.0.3.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/5.0.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-0wWhm7zz6C2mEyI3ewqSntfiMpfA/LgMhzGQn+VKtOjsCd1pNt0dp5gIoy0yMLxvUnnarK0TZF0/zeAEMdYWsQ==",
-      "path": "microsoft.aspnetcore.identity.entityframeworkcore/5.0.3",
-      "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.5.0.3.nupkg.sha512"
     },
     "Microsoft.CSharp/4.7.0": {
       "type": "package",

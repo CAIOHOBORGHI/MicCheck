@@ -16,19 +16,14 @@ namespace MicCheck.Data.Entities
         }
 
         [Key]
-        public string FanId { get; set; }
+        public int FanId { get; set; }
 
         [Required]
         public DateTime BirthDate { get; set; }
 
-        //[Required]
-        //public string Email { get; set; }
-
         [Required]
-        public string HomeTown { get; set; }
-
-        [Required]
-        public string Name { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
 
         public string PicturePath { get; set; }
 

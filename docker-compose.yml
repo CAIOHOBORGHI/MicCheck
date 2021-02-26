@@ -4,7 +4,7 @@ services:
     container_name: db
     environment: 
       ACCEPT_EULA: "Y"
-      SA_PASSWORD: "Bluprints@2020"
+      SA_PASSWORD: "Bluprints@2021"
     image: microsoft/mssql-server-linux:2017-latest
     ports: 
       - "1433:1433"

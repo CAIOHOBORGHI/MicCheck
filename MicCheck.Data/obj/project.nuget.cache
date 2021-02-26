@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "FCuCVH9SuauIc6RjzonNhz51KnpLuArkyiwYGawXDfIPPU4fmpGOrLsQnoP2GHQk7sUyDFZ7g5SEZUyJsVGZOQ==",
+  "dgSpecHash": "Z4ugiboJSC4URNpRF5cYTuVG5+IC8sHJNTyQsycpZ4k+C05zWa4w12dtprzxHsV800ZLJP9e5NwPJaIfD7E0cA==",
   "success": true,
   "projectFilePath": "F:\\projetoscaio\\Bluprints\\MicCheck\\MicCheck.Data\\MicCheck.Data.csproj",
   "expectedPackageFiles": [
@@ -10,7 +10,6 @@
     "C:\\Users\\Caio Borghi\\.nuget\\packages\\microsoft.aspnetcore.dataprotection\\5.0.3\\microsoft.aspnetcore.dataprotection.5.0.3.nupkg.sha512",
     "C:\\Users\\Caio Borghi\\.nuget\\packages\\microsoft.aspnetcore.dataprotection.abstractions\\5.0.3\\microsoft.aspnetcore.dataprotection.abstractions.5.0.3.nupkg.sha512",
     "C:\\Users\\Caio Borghi\\.nuget\\packages\\microsoft.aspnetcore.dataprotection.entityframeworkcore\\5.0.3\\microsoft.aspnetcore.dataprotection.entityframeworkcore.5.0.3.nupkg.sha512",
-    "C:\\Users\\Caio Borghi\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\5.0.3\\microsoft.aspnetcore.identity.entityframeworkcore.5.0.3.nupkg.sha512",
     "C:\\Users\\Caio Borghi\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Caio Borghi\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\Caio Borghi\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",

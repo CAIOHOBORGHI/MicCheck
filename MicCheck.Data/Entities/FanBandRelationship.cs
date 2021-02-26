@@ -7,15 +7,15 @@ namespace MicCheck.Data.Entities
     {
 
         [Key]
-        public Guid FanBandRelationshipId { get; set; }
+        public int FanBandRelationshipId { get; set; }
 
         [Required]
-        public string BandId { get; set; }
+        public int BandId { get; set; }
 
         public Band Band { get; set; }
 
         [Required]
-        public string FanId { get; set; }
+        public int FanId { get; set; }
 
         public Fan Fan { get; set; }
 

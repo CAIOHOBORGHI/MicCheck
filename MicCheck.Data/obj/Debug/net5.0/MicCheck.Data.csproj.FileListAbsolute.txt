@@ -24,7 +24,6 @@ F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\bin\Debug\net5.0\MicCheck.Data.
 F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\bin\Debug\net5.0\MicCheck.Data.dll
 F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\bin\Debug\net5.0\ref\MicCheck.Data.dll
 F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\bin\Debug\net5.0\MicCheck.Data.pdb
-F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\obj\Debug\net5.0\MicCheck.Data.csprojAssemblyReference.cache
 F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\obj\Debug\net5.0\MicCheck.Data.GeneratedMSBuildEditorConfig.editorconfig
 F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\obj\Debug\net5.0\MicCheck.Data.AssemblyInfoInputs.cache
 F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\obj\Debug\net5.0\MicCheck.Data.AssemblyInfo.cs
@@ -33,3 +32,4 @@ F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\obj\Debug\net5.0\MicCheck.Data.
 F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\obj\Debug\net5.0\ref\MicCheck.Data.dll
 F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\obj\Debug\net5.0\MicCheck.Data.pdb
 F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\obj\Debug\net5.0\MicCheck.Data.genruntimeconfig.cache
+F:\projetoscaio\Bluprints\MicCheck\MicCheck.Data\obj\Debug\net5.0\MicCheck.Data.csprojAssemblyReference.cache

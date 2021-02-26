@@ -14,7 +14,7 @@ namespace MicCheck.Data.Entities
         public DateTime StartDate { get; set; }
 
         [Required]
-        public string BandId { get; set; }
+        public int BandId { get; set; }
         public Band Band { get; set; }
 
         [Required]

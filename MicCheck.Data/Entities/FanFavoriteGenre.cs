@@ -10,7 +10,7 @@ namespace MicCheck.Data.Entities
     public class FanFavoriteGenre
     {
         [Required]
-        public string FanId { get; set; }
+        public int FanId { get; set; }
         public Fan Fan { get; set; }
 
         [Required]

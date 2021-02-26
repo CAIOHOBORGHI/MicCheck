@@ -11,7 +11,7 @@ namespace MicCheck.Data.Entities
         }
 
         [Required]
-        public string BandId { get; set; }
+        public int BandId { get; set; }
 
         public Band Band { get; set; }
 
