@@ -48,17 +48,15 @@ namespace MicCheck.Data
 
             #region Relationships
             // User
-            builder.Entity<User>()
-                .HasMany<Band>(u => u.Bands)
-                .WithOne(b => b.User)
-                .HasForeignKey(b => b.UserId)
-                .IsRequired();
+            //builder.Entity<User>()
+            //    .HasMany<Band>(u => u.Bands)
+            //    .WithOne(b => b.User)
+            //    .HasForeignKey(b => b.UserId);
 
-            builder.Entity<User>()
-                .HasMany<Fan>(u => u.Fans)
-                .WithOne(f => f.User)
-                .HasForeignKey(f => f.UserId)
-                .IsRequired();
+            //builder.Entity<User>()
+            //    .HasMany<Fan>(u => u.Fans)
+            //    .WithOne(f => f.User)
+            //    .HasForeignKey(f => f.UserId);
 
             // Band Social Medias
             builder.Entity<BandSocialMedia>()
@@ -76,7 +74,8 @@ namespace MicCheck.Data
 
             // Fan Band Relationships
             builder.Entity<FanBandRelationship>()
-                .HasKey(fb => new { fb.BandId, fb.FanId });
+                .HasIndex(fb => new { fb.BandId, fb.FanId })
+                .IsUnique();
 
             builder.Entity<FanBandRelationship>()
                 .HasOne<Band>(fbr => fbr.Band)

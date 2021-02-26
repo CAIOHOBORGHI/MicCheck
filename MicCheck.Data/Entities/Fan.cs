@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MicCheck.Data.Entities
 {
-    public class Fan
+    public class Fan : User
     {
         public Fan()
         {
@@ -15,15 +15,8 @@ namespace MicCheck.Data.Entities
             Reels = new HashSet<Reel>();
         }
 
-        [Key]
-        public int FanId { get; set; }
-
         [Required]
         public DateTime BirthDate { get; set; }
-
-        [Required]
-        public int UserId { get; set; }
-        public User User { get; set; }
 
         public string PicturePath { get; set; }
 

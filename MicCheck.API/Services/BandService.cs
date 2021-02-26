@@ -28,11 +28,11 @@ namespace MicCheck.API.Services
         public BaseResponse AddFanRelationship(int bandId, int fanId, bool liked)
         {
             BaseResponse response = new BaseResponse();
-            Band bandEntity = _bandRepository.Get(band => band.BandId == bandId);
+            Band bandEntity = _bandRepository.Get(band => band.Id == bandId);
             if (bandEntity == null)
                 return response.Error("Band was not found!");
 
-            Fan fanEntity = _fanRepository.Get(fan => fan.FanId == fanId);
+            Fan fanEntity = _fanRepository.Get(fan => fan.Id == fanId);
             if (fanEntity == null)
                 return response.Error("Fan was not found!");
 
@@ -56,8 +56,8 @@ namespace MicCheck.API.Services
                 entities?.
                 Select(entity => 
                     new BandModel { 
-                        BandId = entity.BandId, 
-                        Name = entity.User.Name, 
+                        BandId = entity.Id, 
+                        Name = entity.Name, 
                         GenreTags = entity.GenreTags.Select(s => s.Genre.Name).ToList()
                     })
                 .ToList();
@@ -77,11 +77,11 @@ namespace MicCheck.API.Services
                     bandEntities
                         .Select(s => new BandModel
                         {
-                            BandId = s.BandId,
-                            Name = s.User.Name,
+                            BandId = s.Id,
+                            Name = s.Name,
                             FansCount = s.FansRelationships.Count(fr => fr.Liked),
                             GenreTags = s.GenreTags?.Select(s => s.Genre.Name).ToList(),
-                            HomeTown = s.User.HomeTown
+                            HomeTown = s.HomeTown
                         }).ToList();
             }
 

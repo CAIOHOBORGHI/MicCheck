@@ -19,11 +19,9 @@ namespace MicCheck.API
 {
     public class Startup
     {
-        private ILogger _logger;
-        public Startup(IConfiguration configuration, ILogger logger)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            _logger = logger;
         }
 
         public IConfiguration Configuration { get; }
@@ -68,7 +66,7 @@ namespace MicCheck.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
         {
             if (env.IsDevelopment())
             {
@@ -76,7 +74,7 @@ namespace MicCheck.API
             }
 
             // With this line we configure the Exception handler
-            app.ConfigureExceptionHandler(_logger);
+            app.ConfigureExceptionHandler(logger);
 
             app.UseHttpsRedirection();
 

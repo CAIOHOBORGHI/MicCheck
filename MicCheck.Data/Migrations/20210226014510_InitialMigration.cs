@@ -26,49 +26,24 @@ namespace MicCheck.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNetRoles",
+                name: "Bands",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetRoles", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AspNetUsers",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: true),
-                    HomeTown = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Description = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: false),
                     PicturePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PresentationAudioPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     VideoClipPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
-                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HomeTown = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HashedPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                    table.PrimaryKey("PK_Bands", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -89,16 +64,20 @@ namespace MicCheck.Data.Migrations
                 name: "Fans",
                 columns: table => new
                 {
-                    FanId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    HomeTown = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PicturePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ProfileDescription = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ProfileDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HomeTown = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HashedPassword = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Fans", x => x.FanId);
+                    table.PrimaryKey("PK_Fans", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -176,126 +155,20 @@ namespace MicCheck.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNetRoleClaims",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetRoleClaims", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
-                        column: x => x.RoleId,
-                        principalTable: "AspNetRoles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AspNetUserClaims",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_AspNetUserClaims_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AspNetUserLogins",
-                columns: table => new
-                {
-                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
-                    table.ForeignKey(
-                        name: "FK_AspNetUserLogins_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AspNetUserRoles",
-                columns: table => new
-                {
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
-                    table.ForeignKey(
-                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
-                        column: x => x.RoleId,
-                        principalTable: "AspNetRoles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AspNetUserTokens",
-                columns: table => new
-                {
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
-                    table.ForeignKey(
-                        name: "FK_AspNetUserTokens_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Posts",
                 columns: table => new
                 {
                     PostId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    BandId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    BandId = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Posts", x => x.PostId);
                     table.ForeignKey(
-                        name: "FK_Posts_AspNetUsers_BandId",
+                        name: "FK_Posts_Bands_BandId",
                         column: x => x.BandId,
-                        principalTable: "AspNetUsers",
+                        principalTable: "Bands",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -304,26 +177,27 @@ namespace MicCheck.Data.Migrations
                 name: "FanBandRelathionships",
                 columns: table => new
                 {
-                    BandId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FanId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FanBandRelationshipId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FanBandRelationshipId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BandId = table.Column<int>(type: "int", nullable: false),
+                    FanId = table.Column<int>(type: "int", nullable: false),
                     Liked = table.Column<bool>(type: "bit", nullable: false),
                     ChoiceDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FanBandRelathionships", x => new { x.BandId, x.FanId });
+                    table.PrimaryKey("PK_FanBandRelathionships", x => x.FanBandRelationshipId);
                     table.ForeignKey(
-                        name: "FK_FanBandRelathionships_AspNetUsers_BandId",
+                        name: "FK_FanBandRelathionships_Bands_BandId",
                         column: x => x.BandId,
-                        principalTable: "AspNetUsers",
+                        principalTable: "Bands",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_FanBandRelathionships_Fans_FanId",
                         column: x => x.FanId,
                         principalTable: "Fans",
-                        principalColumn: "FanId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -332,24 +206,24 @@ namespace MicCheck.Data.Migrations
                 columns: table => new
                 {
                     ReelId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    BandId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FanId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    BandId = table.Column<int>(type: "int", nullable: false),
+                    FanId = table.Column<int>(type: "int", nullable: false),
                     VideoPath = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Reels", x => x.ReelId);
                     table.ForeignKey(
-                        name: "FK_Reels_AspNetUsers_BandId",
+                        name: "FK_Reels_Bands_BandId",
                         column: x => x.BandId,
-                        principalTable: "AspNetUsers",
+                        principalTable: "Bands",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Reels_Fans_FanId",
                         column: x => x.FanId,
                         principalTable: "Fans",
-                        principalColumn: "FanId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -357,16 +231,16 @@ namespace MicCheck.Data.Migrations
                 name: "BandGenre",
                 columns: table => new
                 {
-                    BandId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    BandId = table.Column<int>(type: "int", nullable: false),
                     GenreId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_BandGenre", x => new { x.BandId, x.GenreId });
                     table.ForeignKey(
-                        name: "FK_BandGenre_AspNetUsers_BandId",
+                        name: "FK_BandGenre_Bands_BandId",
                         column: x => x.BandId,
-                        principalTable: "AspNetUsers",
+                        principalTable: "Bands",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -381,7 +255,7 @@ namespace MicCheck.Data.Migrations
                 name: "FanFavoriteGenre",
                 columns: table => new
                 {
-                    FanId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FanId = table.Column<int>(type: "int", nullable: false),
                     GenreId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -391,7 +265,7 @@ namespace MicCheck.Data.Migrations
                         name: "FK_FanFavoriteGenre_Fans_FanId",
                         column: x => x.FanId,
                         principalTable: "Fans",
-                        principalColumn: "FanId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_FanFavoriteGenre_Genres_GenreId",
@@ -405,7 +279,7 @@ namespace MicCheck.Data.Migrations
                 name: "BandSocialMedias",
                 columns: table => new
                 {
-                    BandId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    BandId = table.Column<int>(type: "int", nullable: false),
                     SocialMediaId = table.Column<int>(type: "int", nullable: false),
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -413,9 +287,9 @@ namespace MicCheck.Data.Migrations
                 {
                     table.PrimaryKey("PK_BandSocialMedias", x => new { x.BandId, x.SocialMediaId });
                     table.ForeignKey(
-                        name: "FK_BandSocialMedias_AspNetUsers_BandId",
+                        name: "FK_BandSocialMedias_Bands_BandId",
                         column: x => x.BandId,
-                        principalTable: "AspNetUsers",
+                        principalTable: "Bands",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -432,16 +306,16 @@ namespace MicCheck.Data.Migrations
                 {
                     ShowId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    BandId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    BandId = table.Column<int>(type: "int", nullable: false),
                     VenueId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Shows", x => x.ShowId);
                     table.ForeignKey(
-                        name: "FK_Shows_AspNetUsers_BandId",
+                        name: "FK_Shows_Bands_BandId",
                         column: x => x.BandId,
-                        principalTable: "AspNetUsers",
+                        principalTable: "Bands",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -483,7 +357,7 @@ namespace MicCheck.Data.Migrations
                 columns: table => new
                 {
                     PostId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FanId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FanId = table.Column<int>(type: "int", nullable: false),
                     ReactionTypeId = table.Column<int>(type: "int", nullable: false),
                     PostReactionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -494,7 +368,7 @@ namespace MicCheck.Data.Migrations
                         name: "FK_PostReactions_Fans_FanId",
                         column: x => x.FanId,
                         principalTable: "Fans",
-                        principalColumn: "FanId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_PostReactions_Posts_PostId",
@@ -555,45 +429,6 @@ namespace MicCheck.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetRoleClaims_RoleId",
-                table: "AspNetRoleClaims",
-                column: "RoleId");
-
-            migrationBuilder.CreateIndex(
-                name: "RoleNameIndex",
-                table: "AspNetRoles",
-                column: "NormalizedName",
-                unique: true,
-                filter: "[NormalizedName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetUserClaims_UserId",
-                table: "AspNetUserClaims",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetUserLogins_UserId",
-                table: "AspNetUserLogins",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetUserRoles_RoleId",
-                table: "AspNetUserRoles",
-                column: "RoleId");
-
-            migrationBuilder.CreateIndex(
-                name: "EmailIndex",
-                table: "AspNetUsers",
-                column: "NormalizedEmail");
-
-            migrationBuilder.CreateIndex(
-                name: "UserNameIndex",
-                table: "AspNetUsers",
-                column: "NormalizedUserName",
-                unique: true,
-                filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_BandGenre_GenreId",
                 table: "BandGenre",
                 column: "GenreId");
@@ -602,6 +437,12 @@ namespace MicCheck.Data.Migrations
                 name: "IX_BandSocialMedias_SocialMediaId",
                 table: "BandSocialMedias",
                 column: "SocialMediaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FanBandRelathionships_BandId_FanId",
+                table: "FanBandRelathionships",
+                columns: new[] { "BandId", "FanId" },
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_FanBandRelathionships_FanId",
@@ -673,21 +514,6 @@ namespace MicCheck.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "AspNetRoleClaims");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUserClaims");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUserLogins");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUserRoles");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUserTokens");
-
-            migrationBuilder.DropTable(
                 name: "BandGenre");
 
             migrationBuilder.DropTable(
@@ -715,9 +541,6 @@ namespace MicCheck.Data.Migrations
                 name: "Shows");
 
             migrationBuilder.DropTable(
-                name: "AspNetRoles");
-
-            migrationBuilder.DropTable(
                 name: "SocialMedias");
 
             migrationBuilder.DropTable(
@@ -739,7 +562,7 @@ namespace MicCheck.Data.Migrations
                 name: "Venues");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Bands");
 
             migrationBuilder.DropTable(
                 name: "Fans");

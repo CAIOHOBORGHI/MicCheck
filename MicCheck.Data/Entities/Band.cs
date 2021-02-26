@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MicCheck.Data.Entities
 {
-    public class Band
+    public class Band : User
     {
         public Band()
         {
@@ -16,17 +16,9 @@ namespace MicCheck.Data.Entities
             SocialMedias = new HashSet<BandSocialMedia>();
             Shows = new HashSet<Show>();
         }
-
-        [Key]
-        public int BandId { get; set; }
-
         [Required]
         [StringLength(120)]
         public string Description { get; set; }
-
-        [Required]
-        public int UserId { get; set; }
-        public User User { get; set; }
 
         public string PicturePath { get; set; }
         public string PresentationAudioPath { get; set; }

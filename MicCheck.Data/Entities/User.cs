@@ -11,8 +11,6 @@ namespace MicCheck.Data.Entities
     {
         public User()
         {
-            Bands = new HashSet<Band>();
-            Fans = new HashSet<Fan>();
         }
 
         [Key]
@@ -33,8 +31,5 @@ namespace MicCheck.Data.Entities
         //Using role as a string for demo purposes
         [Required]
         public string Role { get; set; }
-
-        public virtual ICollection<Band> Bands { get; set; }
-        public virtual ICollection<Fan> Fans { get; set; }
     }
 }
