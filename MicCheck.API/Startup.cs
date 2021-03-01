@@ -84,7 +84,6 @@ namespace MicCheck.API
             services.AddScoped<IFanBandRepository, FanBandRepository>();
             services.AddScoped<IFanRepository, FanRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
-
         }
 
 

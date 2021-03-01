@@ -173,7 +173,7 @@ using MicCheck.Shared.Requests;
             {
                 success = response.Message;
                 StateHasChanged();
-                await Task.Delay(5000);
+                await Task.Delay(3000);
                 var returnUrl = NavigationManager.QueryString("returnUrl") ?? "/home";
                 NavigationManager.NavigateTo(returnUrl);
             }
