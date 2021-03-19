@@ -19,6 +19,9 @@ using MicCheck.API.Services;
 using MicCheck.Core.Repositories.Interfaces;
 using MicCheck.Data.Repositories;
 using MicCheck.Data.Repositories.Interfaces;
+using Microsoft.OpenApi.Models;
+using System;
+using Autofac;
 
 namespace MicCheck.API
 {
@@ -67,6 +70,12 @@ namespace MicCheck.API
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             });
 
+            // Adding Swagger
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MicCheck.API", Version = "v1" });
+            });  
+
             // Add cors
             services.AddCors(o => o.AddPolicy("Policy", builder =>
             {
@@ -93,6 +102,14 @@ namespace MicCheck.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MicCheck.API v1"));
+            }
+
+            using(var scope = app.ApplicationServices.CreateScope())
+            {
+                // Ensures database creation
+                scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.EnsureCreated();
             }
 
             app.UseCors("Policy");

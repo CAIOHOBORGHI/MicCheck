@@ -13,6 +13,8 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace MicCheck.API.Controllers
 {
+    [ApiController]
+    [Route("api/band/")]
     public class BandController : Controller
     {
         private IBandService _bandService;
@@ -40,7 +42,7 @@ namespace MicCheck.API.Controllers
             return Ok(_baseResponse);
         }
 
-        [HttpGet]
+        [HttpGet("getall")]
         public IActionResult GetAll()
         {
             BaseDataResponse<List<BandModel>> response = new BaseDataResponse<List<BandModel>>();

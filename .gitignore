@@ -19,3 +19,16 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
+.vs/
+
+MicCheck.Web/bin/
+
+MicCheck.Web/obj/
+
+MicCheck.Data/bin/
+
+MicCheck.Data/obj/
+
+MicCheck.API/bin/
+
+MicCheck.API/obj/

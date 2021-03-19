@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 
 namespace MicCheck.API.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]/[action]")]
     public class AccountController : Controller
     {
         private IBandService _bandService;
@@ -26,7 +28,7 @@ namespace MicCheck.API.Controllers
         [AllowAnonymous]
         public IActionResult Test()
         {
-            return Ok("okay!");
+            return Ok("ok!");
         }
 
         [HttpPost]
