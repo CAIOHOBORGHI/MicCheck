@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using System.Net.Http;
 using MicCheck.Web.Services.Interfaces;
 using MicCheck.Web.Services;
+using MudBlazor.Services;
 
 namespace MicCheck.Web
 {
@@ -36,6 +37,7 @@ namespace MicCheck.Web
             services.AddScoped<ILocalStorageService, LocalStorageService>();
 
             services.AddSingleton(new HttpClient { BaseAddress = new Uri(apiUrl) });
+            services.AddMudServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
